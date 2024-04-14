@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 import Logo from '../../assets/logo.png';
 
@@ -14,9 +15,12 @@ const Header = () => {
           <img src={Logo} alt="Logo" width="80px" />
         </NavbarBrand>
 
-        <Nav className='mr-md-5'>
-          <NavItem>
-            <NavLink href='/' className='NavLink'>Something</NavLink>
+        <Nav className='me-md-5'>
+          <NavItem className='NavItem'>
+            <NavLink exact to='/' className='NavLink'>BurgerBuilder</NavLink>
+          </NavItem>
+          <NavItem className='NavItem'>
+            <NavLink exact to='/orders' className='NavLink'>Orders</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

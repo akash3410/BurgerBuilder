@@ -3,6 +3,7 @@ import Burger from './Burger/Burger';
 import Controls from './Controls/Controls';
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
 import Summary from './Summary/Summary';
+import { Navigate } from 'react-router-dom';
 
 const INGREDIENT_PRICES = {
   salad: 20,
@@ -19,7 +20,8 @@ export default class BurgerBuilder extends Component {
     ],
     totalPrice: 80,
     modalOpen: false,
-    purchasable: false
+    purchasable: false,
+    onClickCheckout: false
   }
 
   updatePurchasable = ingredients => {
@@ -68,9 +70,15 @@ export default class BurgerBuilder extends Component {
       modalOpen: !this.state.modalOpen
     })
   }
+
+  handleCheckout = () => {
+    this.setState({
+      onClickCheckout: true
+    })
+  }
   render() {
     return (
-      <div>
+      <div className='container'>
         <div className='d-flex flex-md-row flex-column'>
           <Burger ingredients={this.state.ingredients} />
           <Controls
@@ -88,9 +96,10 @@ export default class BurgerBuilder extends Component {
             <h5>Total Price: {this.state.totalPrice.toFixed(0)} BDT</h5>
           </ModalBody>
           <ModalFooter>
-            <Button style={{ backgroundColor: "#D70F64" }}>Continue to CheckOut</Button>
+            <Button style={{ backgroundColor: "#D70F64" }} onClick={this.handleCheckout}>Continue to CheckOut</Button>
             <Button onClick={this.toggleModal}>Cancel</Button>
           </ModalFooter>
+          {this.state.onClickCheckout && <Navigate to="/checkout" replace={true} />}
         </Modal>
       </div>
     )

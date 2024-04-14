@@ -11,10 +11,14 @@
 .NavLink {
   text-decoration: none;
   color: white;
-  font-size: 25px;
-  margin-top: -25px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .NavLink:hover {
   color: wheat;
+}
+
+.NavItem {
+  margin-top: -25px;
 }
