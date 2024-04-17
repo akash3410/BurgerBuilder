@@ -17,10 +17,10 @@ const Header = () => {
 
         <Nav className='me-md-5'>
           <NavItem className='NavItem'>
-            <NavLink exact to='/' className='NavLink'>BurgerBuilder</NavLink>
+            <NavLink to='/' className='NavLink'>BurgerBuilder</NavLink>
           </NavItem>
           <NavItem className='NavItem'>
-            <NavLink exact to='/orders' className='NavLink'>Orders</NavLink>
+            <NavLink to='/orders' className='NavLink'>Orders</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

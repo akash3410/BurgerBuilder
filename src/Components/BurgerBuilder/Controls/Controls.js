@@ -48,9 +48,10 @@ const Controls = props => {
           <h5>Price: <strong>{props.price}</strong> BDT</h5>
         </CardFooter>
         <Button
-          style={{ backgroundColor: "#D70F64" }}
+          style={{ backgroundColor: "#D70F64", borderRadius: "0px" }}
           disabled={!props.purchasable}
           onClick={props.toggleModal}
+          className='rounded-bottom'
         >Order Now</Button>
       </Card>
     </div>
