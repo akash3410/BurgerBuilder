@@ -14,6 +14,9 @@ const INITIAL_STATE = {
   ],
   totalPrice: 80,
   purchasable: false,
+  orders: [],
+  orderErr: false,
+  orderLoading: true
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -62,6 +65,25 @@ export const reducer = (state = INITIAL_STATE, action) => {
         ],
         totalPrice: 80,
         purchasable: false,
+      }
+    case actionTypes.LOAD_OREDR:
+      let orders = [];
+      for (let key in action.payload) {
+        orders.push({
+          ...action.payload[key],
+          id: key,
+        })
+      }
+      return {
+        ...state,
+        orders: orders,
+        orderLoading: false,
+      }
+    case actionTypes.OREDR_LOAD_FAIELD:
+      return {
+        ...state,
+        orderErr: true,
+        orderLoading: false,
       }
     default:
       return state;
