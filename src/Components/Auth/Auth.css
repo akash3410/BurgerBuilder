@@ -1,0 +1,13 @@
+.SwitchButton {
+  background-color: #D70F64;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: whitesmoke;
+  width: 100%;
+}
+
+.SwitchButton:hover {
+  background-color: #b60d53;
+}

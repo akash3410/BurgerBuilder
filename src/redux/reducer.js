@@ -16,7 +16,11 @@ const INITIAL_STATE = {
   purchasable: false,
   orders: [],
   orderErr: false,
-  orderLoading: true
+  orderLoading: true,
+  token: null,
+  userId: null,
+  authLoading: false,
+  authFailedMsg: null
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -85,7 +89,35 @@ export const reducer = (state = INITIAL_STATE, action) => {
         orderErr: true,
         orderLoading: false,
       }
+    case actionTypes.AUTH_SUCCESS:
+      return {
+        ...state,
+        authFailedMsg: null,
+        token: action.payload.token,
+        userId: action.payload.userId,
+      }
+    case actionTypes.AUTH_LOGOUT:
+      return {
+        ...state,
+        authFailedMsg: null,
+        token: null,
+        userId: null
+      }
+    case actionTypes.AUTH_LOADING:
+      return {
+        ...state,
+        authFailedMsg: null,
+        authLoading: action.payload
+      }
+    case actionTypes.AUTH_FAIELD:
+      return {
+        ...state,
+        authFailedMsg: action.payload,
+        authLoading: false
+      }
     default:
       return state;
   }
 }
+
+//#2B2D2B youtube on Dark Theme
